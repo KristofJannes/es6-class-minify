@@ -5,7 +5,7 @@ const REGEX = /([$]\w+)\W/g
 const VARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 const SIZE = VARS.length
 
-export default class ES6ClassMinify {
+export class Minifier {
   private readonly toReplace: Map<string, number> = new Map()
   private readonly mapping: Map<string, string> = new Map()
   private nextVarID = 0

@@ -20,11 +20,20 @@ Using npm:
 npm i es6-class-minify
 ```
 
-In Node.js:
+In Node.js (ES6):
 ```javascript
-import ES6ClassMinify  from 'es6-class-minify'
+import { Minifier } from 'es6-class-minify'
 
-const minifier = new ES6ClassMinify()
+const minifier = new Minifier()
+const plainCode = '...'
+const minifiedCode = minifier.minify(plainCode)
+```
+
+In Node.js (ES5):
+```javascript
+var es6ClassMinify = require('es6-class-minify')
+
+const minifier = new es6ClassMinify.Minifier()
 const plainCode = '...'
 const minifiedCode = minifier.minify(plainCode)
 ```
@@ -77,9 +86,9 @@ for those things.
 You should use this package in addition to another classical minifier.
 
 ## Notes
-You can call `ES6ClassMinify#minify` multiple times, the previous mappings are
+You can call `Minifier#minify` multiple times, the previous mappings are
 remembers are will be applied to the next strings.
-Within one call to `ES6ClassMinify#minify`, the mappings are allocated to end up
+Within one call to `Minifier#minify`, the mappings are allocated to end up
 with the smallest possible file size.
 So variables that occur most, get a smaller minified name.
 It is advisable to first bundle your code in one (or a few) large bundles, and 
