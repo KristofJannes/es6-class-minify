@@ -1,8 +1,9 @@
 # es6-class-minify
 
-Current minifiers cannot minify ES6 class fields and members functions.
-This is mostly because they are not able to track the class when a method is
-called on an object.
+Package to minify ES6 classes and objects.
+
+Current minifiers cannot minify ES6 class fields and member functions.
+This is because they are not able to track the class when a method is called on an object.
 
 This package provides a simple way to minify class fields and members by
 manually prefixing the name with a `$`-sign.
@@ -15,27 +16,18 @@ names are never accidentally minified.
 
 ## Installation
 
-Using npm:
 ```bash
-npm i es6-class-minify
+npm install es6-class-minify
 ```
 
-In Node.js (ES6):
+## Usage
+
+Single file:
 ```javascript
-import { Minifier } from 'es6-class-minify'
+import { ES6ClassMinify } from 'es6-class-minify';
 
-const minifier = new Minifier()
-const plainCode = '...'
-const minifiedCode = minifier.minify(plainCode)
-```
-
-In Node.js (ES5):
-```javascript
-var es6ClassMinify = require('es6-class-minify')
-
-const minifier = new es6ClassMinify.Minifier()
-const plainCode = '...'
-const minifiedCode = minifier.minify(plainCode)
+const es6ClassMinify = new ES6ClassMinify()
+es6ClassMinify.minify('...')
 ```
 
 ## Example
@@ -85,16 +77,6 @@ Other variables are not minified, since there are already very good minifiers
 for those things.
 You should use this package in addition to another classical minifier.
 
-## Notes
-You can call `Minifier#minify` multiple times, the previous mappings are
-remembers are will be applied to the next strings.
-Within one call to `Minifier#minify`, the mappings are allocated to end up
-with the smallest possible file size.
-So variables that occur most, get a smaller minified name.
-It is advisable to first bundle your code in one (or a few) large bundles, and 
-then pass the bundle to the minifier, to end up with the smallest possible end 
-file.
+# License
 
-The allocation of the mappings is global, i.e. even when two different classes
-has a method with the same name, they will get the same mapping.
-This way, there is no need for this package to track the classes of objects.
+MIT © Kristof Jannes
