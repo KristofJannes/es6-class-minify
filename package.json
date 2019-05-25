@@ -1,8 +1,11 @@
 {
   "name": "es6-class-minify",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A minifier for ES6 objects",
-  "keywords": ["minify", "es6"],
+  "keywords": [
+    "minify",
+    "es6"
+  ],
   "main": "src/index.js",
   "files": [
     "src",
@@ -14,11 +17,11 @@
   },
   "dependencies": {
     "lodash": "4.17.11",
-    "magic-string": "0.25.1"
+    "magic-string": "0.25.2"
   },
   "devDependencies": {
     "chai": "4.2.0",
-    "mocha": "5.2.0"
+    "mocha": "6.1.4"
   },
   "repository": {
     "type": "git",

@@ -4,12 +4,13 @@ const MagicString = require('magic-string')
 const REGEX = /(\$\w+)\W/g
 
 const VARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
-const SIZE = VARS.length
 
 class ES6ClassMinify {
-  constructor() {
+  constructor(exclude = [], vars = VARS) {
     this._mapping = new Map()
     this._nextVarID = 0
+    this._exclude = exclude
+    this._vars = vars
   }
 
   minify(code) {
@@ -31,7 +32,7 @@ class ES6ClassMinify {
 
     return {
       code: magicCode.toString(),
-      map: magicCode.generateMap({hires: true}),
+      map: magicCode.generateMap({ hires: true }),
     }
   }
 
@@ -42,6 +43,9 @@ class ES6ClassMinify {
       for (const match of matches1) {
         REGEX.lastIndex = 0
         const name = REGEX.exec(match)[1]
+        if (this._exclude.includes(name)) {
+          continue
+        }
         toReplace.set(name, (toReplace.get(name) || 0) + 1)
       }
     }
@@ -58,12 +62,12 @@ class ES6ClassMinify {
     let n = this._nextVarID++
     let done = false
     while (!done) {
-      const r = n % SIZE
+      const r = n % this._vars.length
       if (r === n) {
         done = true
       }
-      v = VARS[r] + v
-      n = ((n / SIZE) >>> 0) - 1
+      v = this._vars[r] + v
+      n = ((n / this._vars.length) >>> 0) - 1
     }
     return v
   }
