@@ -1,6 +1,6 @@
 {
   "name": "es6-class-minify",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A minifier for ES6 objects",
   "keywords": [
     "minify",
