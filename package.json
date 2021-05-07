@@ -16,7 +16,7 @@
     "test": "mocha test/*.js"
   },
   "dependencies": {
-    "lodash": "4.17.20",
+    "lodash": "4.17.21",
     "magic-string": "0.25.7"
   },
   "devDependencies": {
