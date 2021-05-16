@@ -1,12 +1,13 @@
 {
   "name": "es6-class-minify",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "description": "A minifier for ES6 objects",
   "keywords": [
     "minify",
     "es6"
   ],
   "main": "src/index.js",
+  "type": "module",
   "files": [
     "src",
     "README.md",
@@ -16,21 +17,24 @@
     "test": "mocha test/*.js"
   },
   "dependencies": {
-    "lodash": "4.17.20",
+    "lodash": "4.17.21",
     "magic-string": "0.25.7"
   },
   "devDependencies": {
-    "chai": "4.2.0",
-    "mocha": "8.1.1"
+    "chai": "4.3.4",
+    "mocha": "8.4.0"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/KristofJannes/es6-class-minify.git"
   },
   "author": "Kristof Jannes",
-  "license": "MIT",
+  "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/KristofJannes/es6-class-minify/issues"
   },
-  "homepage": "https://github.com/KristofJannes/es6-class-minify#readme"
+  "homepage": "https://github.com/KristofJannes/es6-class-minify#readme",
+  "engines": {
+    "node": ">=13"
+  }
 }
